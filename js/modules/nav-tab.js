@@ -1,17 +1,17 @@
 export default class NavTab {
-    constructor(capitoes, icons){
-        this.capitoes = document.querySelectorAll(capitoes)
+    constructor(capitaes, icons){
+        this.capitaes = document.querySelectorAll(capitaes)
         this.icons = document.querySelectorAll(icons)
     }
 
     toggleTabNav(index) {
-        this.capitoes.forEach((capitao)=> {
+        this.capitaes.forEach((capitao)=> {
             capitao.classList.remove('ativo')
         })
-        if(this.capitoes[index].classList.contains('ativo')) {
-            this.capitoes[index].classList.remove('ativo')
+        if(this.capitaes[index].classList.contains('ativo')) {
+            this.capitaes[index].classList.remove('ativo')
         } else
-        this.capitoes[index].classList.add('ativo')
+        this.capitaes[index].classList.add('ativo')
     }
 
     addEventNavTab() {
@@ -23,10 +23,8 @@ export default class NavTab {
     }
 
     init() {
-        if(this.capitoes.length && this.icons.length) {
+        if(this.capitaes.length && this.icons.length) {
             this.addEventNavTab()
         }
     }
 }
-
-console.log('teste')
