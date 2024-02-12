@@ -14,6 +14,7 @@
 
 body {
     background-color: #111111;
+    color: white;
 }
 
 .inicio {
@@ -64,7 +65,7 @@ body {
 }
 
 .irmaos::before {
-    background: white;
+    background: #aee4a0;
     clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
 }
 
@@ -82,6 +83,12 @@ body {
     margin-bottom: 10px;
     margin-right: 200px;
 }
+.fundo-sinopse-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
 
 .fundo-sinopse {
     position: relative;
@@ -89,7 +96,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 100vw;
+    width: 60%;
     height: 1050px;
     background: url('../imagens/reino-clover.jpg') no-repeat center bottom;
     background-size: cover;
@@ -99,7 +106,8 @@ body {
 .fundo-sinopse img {
     position: absolute;
     bottom: 0;
-    left: 30%;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 .sinopse {
@@ -135,11 +143,90 @@ body {
     height: 100px;
 }
 
-.capitoes img {
+.icone-container h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    color: rgb(240, 240, 240);
+    font-size: 5rem;
+    font-family: 'BlackClover';
+}
+
+.capitaes img {
     display: none;
 }
 
-.capitoes img.ativo {
+.capitaes img.ativo {
     display: block;
     height: 550px;
+}
+
+.slide-wrapper {
+    overflow: hidden;
+}
+
+.slide {
+    display: flex;
+}
+
+.slide:hover {
+    will-change: transform;
+}
+
+.slide li {
+    flex-shrink: 0;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .4);
+    opacity: .8;
+    transform: scale(.8);
+    transition: .4s;
+}
+
+.slide li.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.quizz {
+    position: fixed;
+    display: flex;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 200px;
+    background-color: #555555;
+}
+
+.quizz button{
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    background-color: #581414;
+    font-size: 1.5rem;
+}
+
+.modal-container {
+    display: none;
+}
+
+.modal-container.ativo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-color: #1111119a;
+}
+
+.modal-container.ativo .modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: #111111;
+    width: 600px;
 }
