@@ -8,18 +8,22 @@
 }
 
 * {
+    box-sizing: border-box;
     margin: 0px;
     padding: 0px;
 }
 
 body {
+    box-sizing: border-box;
+    width: 100%;
     background-color: #111111;
     color: white;
+
 }
 
 .inicio {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: url('../imagens/black-clover-inicio1000.jpg') no-repeat center bottom;
     background-size: cover;
 }
@@ -28,7 +32,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     background-color: #555555;
 }
@@ -39,11 +43,15 @@ body {
     width: calc(100% - 20px);
     justify-content: center;
     align-items: center;
-    /* height: 78%;
-    width: 78%; */
     font-family: 'BlackClover';
     background-color: #3c3c3c;
     font-size: 3rem;
+}
+
+.irmaos-container {
+    width: 100%;
+    background: white;
+    z-index: 0;
 }
 
 .irmaos {
@@ -51,8 +59,25 @@ body {
     justify-content: space-between;
     flex-direction: row;
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 800px;
+}
+
+.asta-side, .yuno-side {
+    color: white;
+    position: absolute;
+    font-size: 8rem;
+    z-index: 2;
+}
+
+.asta-side {
+    top: 4%;
+    left: 15%;
+}
+
+.yuno-side {
+    right: 15%;
+    bottom: 4%;
 }
 
 .irmaos::before,
@@ -61,7 +86,8 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
+    box-sizing: border-box;
 }
 
 .irmaos::before {
@@ -76,6 +102,27 @@ body {
 
 .irmaos img {
     height: 700px;
+    z-index: 3;
+}
+
+#asta.ativo, #yuno.ativo {
+    height: 750px;
+}
+
+.irmaos.ativoAsta::after {
+    clip-path: polygon(0.5% 1%, 64% 1%, 34.5% 99%, 0.5% 99%);
+}
+
+.irmaos.ativoAsta::before {
+    clip-path: polygon(65% 0, 100% 0, 100% 100%, 35% 100%);
+}
+
+.irmaos.ativoYuno::after {
+    clip-path: polygon(0 0, 65% 0, 35% 100%, 0 100%);
+}
+
+.irmaos.ativoYuno::before {
+    clip-path: polygon(65.5% 1%, 99.5% 1%, 99.5% 99%, 36% 99%);
 }
 
 #yuno {
@@ -83,11 +130,12 @@ body {
     margin-bottom: 10px;
     margin-right: 200px;
 }
+
 .fundo-sinopse-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
 }
 
 .fundo-sinopse {
@@ -113,8 +161,7 @@ body {
 .sinopse {
     margin-top: 100px;
     background-color: #2a2a2abb;
-    height: 600px;
-    width: 400px;
+    width: 450px;
     color: white;
     font-size: 1.6rem;
     text-indent: 2rem;
@@ -132,6 +179,7 @@ body {
 }
 
 .icones {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,11 +191,15 @@ body {
     height: 100px;
 }
 
+.icone-container {
+    width: 100%;
+    padding-top: 30px;
+}
+
 .icone-container h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
     color: rgb(240, 240, 240);
     font-size: 5rem;
     font-family: 'BlackClover';
@@ -163,6 +215,7 @@ body {
 }
 
 .slide-wrapper {
+    width: 100%;
     overflow: hidden;
 }
 
@@ -199,6 +252,7 @@ body {
     height: 150px;
     width: 200px;
     background-color: #555555;
+    z-index: 4;
 }
 
 .quizz button{
@@ -210,23 +264,24 @@ body {
 
 .modal-container {
     display: none;
+    z-index: 5;
 }
 
 .modal-container.ativo {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: block;
     background-color: #1111119a;
 }
 
 .modal-container.ativo .modal {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    position: absolute;
     background-color: #111111;
     width: 600px;
 }

@@ -7,7 +7,6 @@ export default class Modal {
     }
 
     outsideClick(event) {
-        console.log(event.target, this.modal)
         if(event.target === this.modal) {
             this.modal.classList.remove('ativo')
         }
