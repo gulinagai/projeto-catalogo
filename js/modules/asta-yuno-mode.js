@@ -8,11 +8,14 @@ export default class AstaYunoMode {
     }
 
     backgroundChange(event) {
+        document.body.classList.remove('ativo-asta-mode', 'ativo-yuno-mode')
         if (event.target === this.irmaos[0]) {
-            document.body.style.backgroundColor = '#111111'
+            document.body.classList.add('ativo-asta-mode')
+            // document.body.style.backgroundColor = '#111111'
            
         } else if (event.target === this.irmaos[1]) {
-            document.body.style.backgroundColor = '#aee4a0'
+            document.body.classList.add('ativo-yuno-mode')
+            // document.body.style.backgroundColor = '#aee4a0'
 
         }
     }
