@@ -25,6 +25,7 @@ export default class NavTab {
     init() {
         if(this.capitaes.length && this.icons.length) {
             this.addEventNavTab()
+            this.toggleTabNav(0)
         }
     }
 }

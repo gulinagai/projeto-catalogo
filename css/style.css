@@ -18,8 +18,31 @@ body {
     width: 100%;
     background-color: #111111;
     color: white;
+    transition: background-color .2s;
 
 }
+
+
+
+body.ativo-asta-mode{
+    background-color: #111111;
+}
+
+body.ativo-yuno-mode{
+    background-color: #aee4a0;
+}
+
+ .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 60% 1fr;
+    grid-template-rows: 100vh 100px 800px 25px 1050px 266px 800px 700px 800px;
+
+}
+
+.grid-section {
+    grid-column: 1/4;
+}
+
 
 .inicio {
     height: 100vh;
@@ -33,8 +56,9 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 80px;
-    background-color: #555555;
+    height: 100px;
+    background-color: #2f2d2d;
+    box-shadow: 1px 1px 5px 1px black;
 }
 
 .separacao div {
@@ -44,8 +68,14 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'BlackClover';
-    background-color: #3c3c3c;
+    background-color: #212121;
     font-size: 3rem;
+
+}
+
+.separacao div img {
+    height: 50px;
+    padding: 0px 15px;
 }
 
 .irmaos-container {
@@ -103,10 +133,11 @@ body {
 .irmaos img {
     height: 700px;
     z-index: 3;
+    transition: transform .2s;
 }
 
 #asta.ativo, #yuno.ativo {
-    height: 750px;
+    transform: scale(1.1);
 }
 
 .irmaos.ativoAsta::after {
@@ -129,6 +160,12 @@ body {
     align-self: flex-end;
     margin-bottom: 10px;
     margin-right: 200px;
+}
+
+.separacao-irmaos-sinopse {
+    grid-column: 1/4;
+    width: 100%;
+    background-color: #212121;
 }
 
 .fundo-sinopse-container {
@@ -189,6 +226,11 @@ body {
 .icones img {
     margin-top: 30px;
     height: 100px;
+    transition: transform 0.2s;
+}
+
+.icones img:hover {
+    transform: scale(1.2)
 }
 
 .icone-container {
@@ -205,18 +247,56 @@ body {
     font-family: 'BlackClover';
 }
 
-.capitaes img {
-    display: none;
+.capitaes {
+    grid-column: 2;
 }
 
-.capitaes img.ativo {
-    display: block;
+.capitaes .capitao {
+    display: none;
+    padding-top: 70px;
+    margin-bottom: 250px;
+}
+
+.capitaes .capitao.ativo {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    /* gap: 100px; */
+    grid-template-rows: 500px;
     height: 550px;
+    animation: show-right .5s forwards;
+}
+
+@keyframes show-right {
+    from {
+        opacity: 0;
+        transform: translate3d(-30px, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.capitaes .capitao.ativo h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.capitaes .capitao.ativo img {
+    height: 500px;
+}
+
+.capitaes .capitao.ativo p {
+    font-size: 1.5rem;
+    text-align: justify;
+    text-indent: 4rem;
+    line-height: 2.2rem;
 }
 
 .slide-wrapper {
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .slide {
@@ -245,7 +325,7 @@ body {
 .quizz {
     position: fixed;
     display: flex;
-    right: 0;
+    right: 10%;
     bottom: 0;
     justify-content: center;
     align-items: center;
@@ -284,4 +364,55 @@ body {
     transform: translate(-50%, -50%);
     background-color: #111111;
     width: 600px;
+}
+
+.modal {
+    display: none;
+}
+
+.comentarios {
+    padding: 20px;
+    grid-column: 2/3;
+    /* justify-content: center; */
+    color: white;
+    background-color: rgb(40, 39, 39);
+    height: 400px;
+}
+
+.comentarios h2 {
+    box-shadow: 0px 2px 0px rgb(19, 18, 18);
+    margin-bottom: 20px;
+}
+
+.comentarios p {
+    margin-bottom: 10px;
+}
+
+.comentarios textarea {
+    padding: 5px;
+    font-size: 0.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.comentario {
+    position: relative;
+}
+
+.nome, .nome input[type="text"], .email, .email input[type="text"] {
+    width: 50%;
+}
+
+.nome input[type="text"], .email input[type="text"] {
+    padding: 3px;
+    width: 100%;
+}
+
+
+.flex-nome-email {
+    display: flex;
+    gap: 10px;
 }
