@@ -52,6 +52,12 @@ body.ativo-yuno-mode{
     grid-column: 1/4;
 }
 
+#logo {
+    position: fixed;
+    top: 7%;
+    left: 3%;
+    height: 65px;
+}
 
 .inicio {
     height: 100vh;
