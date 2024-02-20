@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Ruthie&display=swap');
+
 @font-face {
     font-family: 'BlackClover';
     src: url('../fonts/BlackCloverFont.ttf') format('truetype'),
@@ -14,12 +16,19 @@
 }
 
 body {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     box-sizing: border-box;
     width: 100%;
     background-color: #111111;
     color: white;
     transition: background-color .2s;
 
+}
+
+h1, h2 {
+    font-family: 'BlackClover';
 }
 
 
@@ -94,18 +103,20 @@ body.ativo-yuno-mode{
 }
 
 .asta-side, .yuno-side {
-    color: white;
+    font-family: 'BlackClover', Arial, Helvetica, sans-serif;
     position: absolute;
-    font-size: 8rem;
+    font-size: 10rem;
     z-index: 2;
 }
 
 .asta-side {
+    color: #b51715;
     top: 4%;
     left: 15%;
 }
 
 .yuno-side {
+    color: #d4c6a9;
     right: 15%;
     bottom: 4%;
 }
@@ -212,6 +223,8 @@ body.ativo-yuno-mode{
 }
 
 .sinopse p {
+   font-size: 1.4rem;
+   line-height: 2rem;
    text-align: justify;
 }
 
@@ -234,6 +247,7 @@ body.ativo-yuno-mode{
 }
 
 .icone-container {
+    margin-top: 20px;
     width: 100%;
     padding-top: 30px;
 }
@@ -242,7 +256,7 @@ body.ativo-yuno-mode{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(240, 240, 240);
+    color: rgb(255, 255, 255);
     font-size: 5rem;
     font-family: 'BlackClover';
 }
@@ -260,7 +274,7 @@ body.ativo-yuno-mode{
 .capitaes .capitao.ativo {
     display: grid;
     grid-template-columns: 40% 60%;
-    /* gap: 100px; */
+    gap: 100px;
     grid-template-rows: 500px;
     height: 550px;
     animation: show-right .5s forwards;
@@ -342,7 +356,12 @@ body.ativo-yuno-mode{
     font-size: 1.5rem;
 }
 
+.perguntas div {
+    display: none;
+}
+
 .modal-container {
+    position: relative;
     display: none;
     z-index: 5;
 }
@@ -357,23 +376,171 @@ body.ativo-yuno-mode{
     background-color: #1111119a;
 }
 
-.modal-container.ativo .modal {
+.modal-container .modal {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 80% 20%; 
+    justify-content: center;
+    align-items: center; 
+    font-size: 1.7rem;
+    color: white;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #111111;
-    width: 600px;
+    background: url('../imagens/quizz/quizz.png') no-repeat center center;
+    background-size: cover;
+    width: 1050px;
+    height: 580px;
+    border: 20px solid #111111f5;
+    border-radius: 15px;
 }
 
-.modal {
+.pergunta {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr 70px 70px;
+    width: 100%;
+    height: 100%;
+    order: -1;
+}
+
+.pergunta h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    grid-column: span 2;
+}
+
+.pergunta p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.pergunta div {
+    
+    background-color: #11111199; 
+    height: 70px;
+    padding: 20px;
+    margin: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    margin-left: 10px;
+    box-sizing: border-box;
+}
+
+.buttons {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#next {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(200%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #111111;
+    color: white;
+}
+
+#prev {
     display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-200%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #111111;
+    color: white;
+}
+
+.imagem-acerto, .imagem-erro, .mensagem-acerto, .mensagem-erro {
+    display: none;
+    z-index: 6;
+}
+
+.imagem-acerto.ativo, .imagem-erro.ativo {
+    display: block;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mensagem-acerto.ativo, .mensagem-erro.ativo {
+    display: block;
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 600px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 5rem;
+    color: white;
+}
+
+.modal.ativo-total {
+    display: grid;
+    grid-template-columns: 40% 35% 25%;
+    grid-template-rows: 80% 20%;
+}
+
+.modal.ativo-total img {
+    margin-left: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: span 2;
+}
+
+.mensagem-total {
+    display: flex;
+    grid-column: span 2;
+    justify-content: center;
+    align-items: center;
+}
+
+.acertos-total {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.ativo-total button {
+    margin: auto;
+    color: white;
+    background-color: #111111;
+    font-family: 'BlackClover';
+    font-size: 1.5rem;
+    width: 140px;
+    height: 60px;
+}
+
+.mensagem-total, .acertos-total {
+    font-family: "Lora", serif;
+    font-size: 1.7rem;
 }
 
 .comentarios {
     padding: 20px;
     grid-column: 2/3;
-    /* justify-content: center; */
     color: white;
     background-color: rgb(40, 39, 39);
     height: 400px;
@@ -416,3 +583,17 @@ body.ativo-yuno-mode{
     display: flex;
     gap: 10px;
 }
+
+::-webkit-scrollbar {
+    background-color: #111111;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #b51715;
+    height: 10px;
+    width: 10px;
+    border-radius: 30px;
+
+}
+
