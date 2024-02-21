@@ -485,10 +485,10 @@ body.ativo-yuno-mode{
     top: 50%;
     left: 50%;
     transform: translate(200%, -50%);
-    width: 40px;
+    width: 100px;
     height: 40px;
-    border-radius: 50%;
-    background-color: #111111;
+    border-radius: 10px;
+    background-color: rgb(34, 170, 34);
     color: white;
 }
 
