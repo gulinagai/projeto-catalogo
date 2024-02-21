@@ -56,7 +56,16 @@ body.ativo-yuno-mode{
     position: fixed;
     top: 7%;
     left: 3%;
-    height: 65px;
+    height: 120px;
+    transition: transform 0.2s;
+}
+
+#logo.resize-1 {
+    transform: scale(0.9);
+}
+
+#logo.resize-2 {
+    transform: scale(0.8);
 }
 
 .inicio {
