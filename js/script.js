@@ -4,18 +4,36 @@ import SlideNav from './modules/slide.js'
 import Modal from './modules/modal.js'
 import AstaYunoMode from './modules/asta-yuno-mode.js'
 
-const scrollToTop = new ScrollToTop('.inicio','#logo')
-scrollToTop.init()
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 
-const navTab = new NavTab('.capitao', '.icones img')
-navTab.init()
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.scrollIntoView({ block: 'start' })
+    
+});
 
-const astaYunoMode = new AstaYunoMode('.irmaos img', '.irmaos')
-astaYunoMode.init()
+window.addEventListener('load', function() {
 
-const modal = new Modal('.quizz button', '.modal', '.pergunta', '.modal-container')
-modal.init()
+    const scrollToTop = new ScrollToTop('.inicio','#logo')
+    scrollToTop.init()
+    
+    const navTab = new NavTab('.capitao', '.icones img')
+    navTab.init()
+    
+    const astaYunoMode = new AstaYunoMode('.irmaos img', '.irmaos')
+    astaYunoMode.init()
+    
+    const modal = new Modal('.quizz button', '.modal', '.pergunta', '.modal-container')
+    modal.init()
+    
+    const slide = new SlideNav('.slide', '.slide-wrapper')
+    slide.init()
 
-const slide = new SlideNav('.slide', '.slide-wrapper')
-slide.init()
+    window.location.hash = ''
+})
+
+
+
+
 

@@ -13,7 +13,7 @@ export default class Modal {
         this.activeModal = this.activeModal.bind(this)
         this.outsideClick = this.outsideClick.bind(this)
         this.nextQuestion = this.nextQuestion.bind(this)
-        this.prevQuestion = this.prevQuestion.bind(this)
+        // this.prevQuestion = this.prevQuestion.bind(this)
         this.selectAlternative = this.selectAlternative.bind(this)
         this.clearContent = this.clearContent.bind(this)
     }
@@ -22,6 +22,7 @@ export default class Modal {
         if(event.target === this.modalContainer) {
             this.modalContainer.classList.remove('ativo')
         }
+        this.outside = true
     }
 
     activeModal() {
@@ -31,12 +32,12 @@ export default class Modal {
             if(!this.quizz) this.quizz = this.createRandomQuizz()
             this.perguntasArray = Array.from(this.perguntas)
             this.arrayIndex = []
-            this.indexAtual = 0 
             for(let c = 0; c < this.quizz.length; c++) {
                 const array = this.perguntasArray.findIndex((pergunta)=> {
                     return this.quizz[c] === pergunta
                 })
                 this.arrayIndex.push(array)
+            this.outside === true ? this.indexAtual === this.indexAtual : this.indexAtual = 0 
             }
             if(this.modal.childElementCount === 0) {
                 this.divButtons = document.createElement('div')
@@ -56,7 +57,7 @@ export default class Modal {
             })
             if(this.modal.childElementCount === 1 && this.divButtons.childElementCount === 2) this.modal.appendChild(this.quizz[this.indexAtual])
             this.buttonNext.addEventListener('click', this.nextQuestion)
-            this.buttonPrev.addEventListener('click', this.prevQuestion) 
+            // this.buttonPrev.addEventListener('click', this.prevQuestion) 
         }
     }
     
@@ -66,15 +67,15 @@ export default class Modal {
     }
 
 
-    prevQuestion() {
-       this.indexAtual -= 1
-       this.modal.replaceChild(this.quizz[this.indexAtual], this.quizz[this.indexAtual + 1])
+    // prevQuestion() {
+    //    this.indexAtual -= 1
+    //    this.modal.replaceChild(this.quizz[this.indexAtual], this.quizz[this.indexAtual + 1])
        
-       if(this.indexAtual >= 0 && this.indexAtual < this.quizz.length - 1) {
-        this.buttonNext.style.display = 'inline'
-       } 
-       if(this.indexAtual === 0) this.buttonPrev.style.display = 'none'
-    }
+    //    if(this.indexAtual >= 0 && this.indexAtual < this.quizz.length - 1) {
+    //     this.buttonNext.style.display = 'inline'
+    //    } 
+    //    if(this.indexAtual === 0) this.buttonPrev.style.display = 'none'
+    // }
 
     nextQuestion() {
         if(this.indexAtual + 1 === this.quizz.length) {
@@ -96,9 +97,9 @@ export default class Modal {
                 this.modal.innerHTML = ''
                 this.buttonNext.style.display = 'none'
             }
-            if(this.indexAtual > 0) {
-                this.buttonPrev.style.display = 'inline'
-            }
+            // if(this.indexAtual > 0) {
+            //     this.buttonPrev.style.display = 'inline'
+            // }
         }
     }
 
@@ -151,6 +152,7 @@ export default class Modal {
         this.acertosTotal.remove()
         this.botaoReiniciar.remove()
         this.totalAcertos = []
+        this.outside = false
         this.quizz.forEach((pergunta, index) =>{
             pergunta.firstElementChild.innerText = pergunta.firstElementChild.innerText.replace(/(Pergunta )\d/, '$1X')
         })
@@ -162,8 +164,6 @@ export default class Modal {
         })
         this.quizz = false
 
-        
-        
         this.activeModal()
     }
 
