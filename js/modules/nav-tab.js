@@ -27,5 +27,6 @@ export default class NavTab {
             this.addEventNavTab()
             this.toggleTabNav(0)
         }
+        return this
     }
 }

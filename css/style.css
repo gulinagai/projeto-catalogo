@@ -53,6 +53,7 @@ body.ativo-yuno-mode{
 }
 
 #logo {
+    z-index: 1;
     position: fixed;
     top: 7%;
     left: 3%;
@@ -183,10 +184,42 @@ body.ativo-yuno-mode{
     clip-path: polygon(65.5% 1%, 99.5% 1%, 99.5% 99%, 36% 99%);
 }
 
+#asta, #yuno {
+    cursor: pointer;;
+}
+
 #yuno {
     align-self: flex-end;
     margin-bottom: 10px;
     margin-right: 200px;
+}
+
+.img-left-top {
+    position: absolute;
+    top: 2000px;
+    left: 1%;
+    z-index: 0;
+}
+
+.img-left-bottom {
+    position: absolute;
+    top: 2600px;
+    left: 2%;
+    z-index: 0;
+}
+
+.img-right-top {
+    position: absolute;
+    top: 2000px;
+    right: 1%;
+    z-index: 0;
+}
+
+.img-right-bottom {
+    position: absolute;
+    top: 2600px;
+    right: 2%;
+    z-index: 0;
 }
 
 .separacao-irmaos-sinopse {
@@ -230,7 +263,8 @@ body.ativo-yuno-mode{
     font-size: 1.6rem;
     text-indent: 2rem;
     padding: 30px;
-
+    border-radius: 20px;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.461);
 }
 
 .sinopse h1{
@@ -256,6 +290,7 @@ body.ativo-yuno-mode{
     margin-top: 30px;
     height: 100px;
     transition: transform 0.2s;
+    z-index: 1;
 }
 
 .icones img:hover {
@@ -354,6 +389,7 @@ body.ativo-yuno-mode{
 }
 
 .quizz {
+    z-index: 4;
     position: fixed;
     display: flex;
     right: 10%;
@@ -461,17 +497,48 @@ body.ativo-yuno-mode{
 }
 
 .pergunta div {
-    
-    background-color: #11111199; 
+    border: 2px solid #111111;
+    border-radius: 10px;
+    background-color: #111111de; 
     height: 70px;
     padding: 20px;
-    margin: 10px; 
+    margin: 20px; 
     display: flex;
     align-items: center;
     justify-content: start;
     gap: 5px;
-    margin-left: 10px;
     box-sizing: border-box;
+}
+
+.pergunta div:hover {
+    background-color: #242424de; 
+    cursor: pointer;
+}
+
+.pergunta div input[type="radio"] {
+    display: none;
+}
+
+.pergunta div input[type="radio"] + label {
+    cursor: pointer;
+}
+
+.pergunta div input[type="radio"] + label::before {
+    cursor: pointer;
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #111111;
+    margin-right: 8px;
+    transition: all .2s;
+    
+}
+
+.pergunta div input[type="radio"]:checked + label::before {
+    border-color: #f8f8f8;
+    background-color: #111111;
 }
 
 .buttons {
@@ -488,8 +555,14 @@ body.ativo-yuno-mode{
     width: 100px;
     height: 40px;
     border-radius: 10px;
-    background-color: rgb(34, 170, 34);
+    background-color: rgb(96, 210, 96);
     color: white;
+    font-weight: bold;
+}
+
+#next:hover {
+    background-color: rgb(109, 226, 109);
+    cursor: pointer;
 }
 
 #prev {
@@ -560,6 +633,7 @@ body.ativo-yuno-mode{
 }
 
 .modal.ativo-total button {
+    cursor: pointer;
     margin: auto;
     color: white;
     background-color: #111111;
@@ -567,6 +641,11 @@ body.ativo-yuno-mode{
     font-size: 1.5rem;
     width: 140px;
     height: 60px;
+}
+
+.modal.ativo-total button:hover {
+    background-color: #292929;
+
 }
 
 .mensagem-total, .acertos-total {
