@@ -7,7 +7,9 @@ export default class AstaYunoMode {
         this.addMouseOverEffect = this.addMouseOverEffect.bind(this)
 
         this.imagemAstaCriada = false
-        this.imagemYunoCriada = false
+        this.imagemYunoCriada = true
+        this.firstCreate = true
+        this.firstTimeYuno = false
     }
 
     backgroundChange(event) {
@@ -22,13 +24,13 @@ export default class AstaYunoMode {
     }
 
     createImagesMode() {
-        if(document.body.classList.contains('ativo-asta-mode')) {
-            if(this.imagemYunoCriada) {
+        if(document.body.classList.contains('ativo-asta-mode') || this.firstCreate) {
+            if(this.imagemYunoCriada && this.firstTimeYuno) {
                 [this.fundoImagemYuno1, this.fundoImagemYuno2, this.fundoImagemYuno3, this.fundoImagemYuno4].forEach((imgFundoYuno)=>{
                     imgFundoYuno.remove()
                 })
-                this.imagemYunoCriada = false
             }
+            this.imagemYunoCriada = false
             if(!this.imagemAstaCriada){
             this.fundoImagemAsta1 = document.createElement('img')
             this.fundoImagemAsta2 = document.createElement('img')
@@ -50,8 +52,11 @@ export default class AstaYunoMode {
             this.fundoImagemAsta3.classList.add('img-right-top')
             this.fundoImagemAsta4.classList.add('img-right-bottom')
             this.imagemAstaCriada = true
-           
-            
+
+            this.firstCreate = false
+
+            this.firstTimeYuno = true
+    
             }
         } else if(document.body.classList.contains('ativo-yuno-mode')) {
             if(this.imagemAstaCriada) {
@@ -75,11 +80,6 @@ export default class AstaYunoMode {
                 listaYuno.forEach((imgFundoYuno)=>{
                     document.body.appendChild(imgFundoYuno)
                 })
-
-                // this.fundoImagemYuno1.setAttribute('src', '../imagens/asta-side/yuno-side-1.jpg')
-                // this.fundoImagemYuno2.setAttribute('src', '../imagens/asta-side/yuno-side-2.jpg')
-                // this.fundoImagemYuno3.setAttribute('src', '../imagens/asta-side/yuno-side-3.jpg')
-                // this.fundoImagemYuno4.setAttribute('src', '../imagens/asta-side/yuno-side-4.jpg')
 
 
                 this.fundoImagemYuno1.classList.add('img-left-top')
@@ -130,6 +130,7 @@ export default class AstaYunoMode {
     init() {
         if(this.irmaos.length){
             this.addEventsIrmaos()
+            this.createImagesMode()
         }
         return this
     }

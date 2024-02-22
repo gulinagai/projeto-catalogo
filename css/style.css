@@ -41,6 +41,19 @@ body.ativo-yuno-mode{
     background-color: #aee4a0;
 }
 
+body.ativo-yuno-mode .icone-container h1, body.ativo-yuno-mode .capitaes .capitao div h2 {
+    text-shadow: 
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+body.ativo-yuno-mode .capitaes .capitao div p {
+    font-weight: 600;
+}
+
+
  .grid-container {
     display: grid;
     grid-template-columns: 1fr 60% 1fr;
@@ -84,7 +97,8 @@ body.ativo-yuno-mode{
     width: 100%;
     height: 100px;
     background-color: #1f1f1f;
-    /* box-shadow: 1px 1px 5px 1px black; */
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.507);
+    z-index: 1;
 }
 
 .separacao div {
@@ -658,7 +672,7 @@ body.ativo-yuno-mode{
     grid-column: 2/3;
     color: white;
     background-color: rgb(40, 39, 39);
-    height: 400px;
+    height: 430px;
 }
 
 .comentarios h2 {
