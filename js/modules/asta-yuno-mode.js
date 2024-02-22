@@ -40,7 +40,7 @@ export default class AstaYunoMode {
             const listaAsta = [this.fundoImagemAsta1, this.fundoImagemAsta2, this.fundoImagemAsta3, this.fundoImagemAsta4]
 
             listaAsta.forEach((imgFundoAsta, index)=>{
-                imgFundoAsta.setAttribute('src', `../imagens/asta-side/asta-side-${index + 1}.png`)
+                imgFundoAsta.setAttribute('src', `../../imagens/asta-side/asta-side-${index + 1}.png`)
             })
 
            listaAsta.forEach((imgFundoAsta)=>{
@@ -74,7 +74,7 @@ export default class AstaYunoMode {
                 const listaYuno = [this.fundoImagemYuno1, this.fundoImagemYuno2, this.fundoImagemYuno3, this.fundoImagemYuno4]
                
                 listaYuno.forEach((imgFundoYuno, index)=>{
-                    imgFundoYuno.setAttribute('src', `../imagens/asta-side/yuno-side-${index + 1}.png`)
+                    imgFundoYuno.setAttribute('src', `../../imagens/asta-side/yuno-side-${index + 1}.png`)
                 })
 
                 listaYuno.forEach((imgFundoYuno)=>{
