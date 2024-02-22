@@ -120,7 +120,7 @@ export default class Modal {
         this.mensagemTotal.classList.add('mensagem-total')
         this.acertosTotal.classList.add('acertos-total')
         if(this.contador >= 0 && this.contador <= 2) {
-            this.imagemTotal.setAttribute('src', '../../imagens/quizz/asta-1.png')
+            this.imagemTotal.setAttribute('src', './imagens/quizz/asta-1.png')
             this.imagemTotal.classList.add('imagem-total')
             if(this.contador === 0) {
                 this.mensagemTotal.innerText = 'Você é péssimo! vai assistir Black Clover agora!' 
@@ -130,10 +130,10 @@ export default class Modal {
                 this.mensagemTotal.innerText = 'Você é ruim! está chutando?' 
             }
         } else if(this.contador === 3) {
-            this.imagemTotal.setAttribute('src', '../../imagens/quizz/asta-tres.png')
+            this.imagemTotal.setAttribute('src', './imagens/quizz/asta-tres.png')
             this.mensagemTotal.innerText = 'Você foi ok! Mas precisa melhorar isso aí!'    
         } else if(this.contador > 3 && this.contador <= 5) {
-            this.imagemTotal.setAttribute('src', '../../imagens/quizz/asta-5.png')
+            this.imagemTotal.setAttribute('src', './imagens/quizz/asta-5.png')
             if(this.contador === 4) {
                 this.mensagemTotal.innerText = 'Você é bom! e sabe muito sobre Black Clover!'
             } else if(this.contador === 5) {
@@ -206,7 +206,7 @@ export default class Modal {
             this.totalAcertos.push(true)
             this.imgAcerto = document.createElement('img')
             this.mensagemAcerto = document.createElement('p')
-            this.imgAcerto.setAttribute('src', '../../imagens/quizz/asta-acerto.png')     
+            this.imgAcerto.setAttribute('src', './imagens/quizz/asta-acerto.png')     
             this.mensagemAcerto.innerText = 'Você acertou!!!'   
             document.body.appendChild(this.imgAcerto)
             document.body.appendChild(this.mensagemAcerto)
@@ -220,7 +220,7 @@ export default class Modal {
             this.totalAcertos.push(false)
             this.imgErro = document.createElement('img')
             this.mensagemErro = document.createElement('p')
-            this.imgErro.setAttribute('src', '../../imagens/quizz/asta-erro.png')     
+            this.imgErro.setAttribute('src', './imagens/quizz/asta-erro.png')     
             this.mensagemErro.innerText = 'Você errou!!!'   
             document.body.appendChild(this.imgErro)
             document.body.appendChild(this.mensagemErro)
