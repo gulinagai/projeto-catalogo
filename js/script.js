@@ -15,13 +15,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('load', function() {
 
-    const scrollToTop = new ScrollToTop('.inicio','#logo')
+    const scrollToTop = new ScrollToTop('.inicio','.logo')
     scrollToTop.init()
     
     const navTab = new NavTab('.capitao', '.icones img')
     navTab.init()
     
-    const astaYunoMode = new AstaYunoMode('.irmaos img', '.irmaos')
+    const astaYunoMode = new AstaYunoMode('.irmaos img', '.irmaos', '.fundo-sinopse-container')
     astaYunoMode.init()
     
     const modal = new Modal('.quizz button', '.modal', '.pergunta', '.modal-container')

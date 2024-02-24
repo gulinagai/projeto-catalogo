@@ -56,7 +56,7 @@ body.ativo-yuno-mode .capitaes .capitao div p {
 
  .grid-container {
     display: grid;
-    grid-template-columns: 1fr 60% 1fr;
+    grid-template-columns: 1fr 70% 1fr;
     grid-template-rows: 100vh 100px 800px 25px 1050px 266px 800px 700px 800px;
 
 }
@@ -65,7 +65,7 @@ body.ativo-yuno-mode .capitaes .capitao div p {
     grid-column: 1/4;
 }
 
-#logo {
+.logo {
     z-index: 1;
     position: fixed;
     top: 7%;
@@ -75,18 +75,10 @@ body.ativo-yuno-mode .capitaes .capitao div p {
     cursor: pointer;
 }
 
-#logo.resize-1 {
-    transform: scale(0.9);
-}
-
-#logo.resize-2 {
-    transform: scale(0.8);
-}
-
 .inicio {
     height: 100vh;
     width: 100%;
-    background: url('../imagens/black-clover-inicio1000.jpg') no-repeat center bottom;
+    background: url('../imagens/black-clover-init-1000.jpg') no-repeat center bottom;
     background-size: cover;
 }
 
@@ -205,35 +197,7 @@ body.ativo-yuno-mode .capitaes .capitao div p {
 #yuno {
     align-self: flex-end;
     margin-bottom: 10px;
-    margin-right: 200px;
-}
-
-.img-left-top {
-    position: absolute;
-    top: 2000px;
-    left: 1%;
-    z-index: 0;
-}
-
-.img-left-bottom {
-    position: absolute;
-    top: 2600px;
-    left: 2%;
-    z-index: 0;
-}
-
-.img-right-top {
-    position: absolute;
-    top: 2000px;
-    right: 1%;
-    z-index: 0;
-}
-
-.img-right-bottom {
-    position: absolute;
-    top: 2600px;
-    right: 2%;
-    z-index: 0;
+    margin-right: 10%;
 }
 
 .separacao-irmaos-sinopse {
@@ -243,10 +207,52 @@ body.ativo-yuno-mode .capitaes .capitao div p {
 }
 
 .fundo-sinopse-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.img-left-top {
+    position: absolute;
+    top: 4%;
+    left: 1%;
+    z-index: 0;
+}
+
+.img-left-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    z-index: 0;
+}
+
+.img-right-top {
+    position: absolute;
+    top: 1%;
+    right: 0;
+    z-index: 0;
+}
+
+.img-right-bottom {
+    position: absolute;
+    bottom: -10%;
+    right: 7%;
+    z-index: 0;
+}
+
+body.ativo-yuno-mode .img-left-top {
+    top: 11%;
+}
+
+body.ativo-yuno-mode .img-right-bottom {
+    right: 3%;
+}
+
+body.ativo-yuno-mode .img-right-top {
+    top: 15%;
+    right: 3%;
 }
 
 .fundo-sinopse {
@@ -328,7 +334,10 @@ body.ativo-yuno-mode .capitaes .capitao div p {
 }
 
 .capitaes {
-    grid-column: 2;
+    
+    grid-column: 2/4;
+    width: 60vw;
+    
 }
 
 .capitaes .capitao {
@@ -339,9 +348,10 @@ body.ativo-yuno-mode .capitaes .capitao div p {
 
 .capitaes .capitao.ativo {
     display: grid;
+    
     grid-template-columns: 40% 60%;
     gap: 100px;
-    grid-template-rows: 500px;
+    grid-template-rows: 1050px;
     height: 550px;
     animation: show-right .5s forwards;
 }
@@ -725,4 +735,320 @@ body.ativo-yuno-mode .capitaes .capitao div p {
     border-radius: 30px;
 
 }
+
+/* Celular e dispositivos móveis */
+@media only screen and (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 100vw;
+        grid-template-rows: 100vh 100px 800px 25px 1150px 556px 1700px 400px 800px;
+    }
+    .grid-section {
+        grid-column: 1;
+    }
+    body .logo {
+        height: 80px;
+    }
+    .capitaes {
+        height: 1700px;
+        margin: auto;
+        width: 90%;
+        grid-column: 1;
+    }
+    .comentarios {
+        grid-column: 1;
+    }
+    .inicio {
+        height: 100%;
+        background: url('../imagens/asta-yuno-fundo-mobile.jpg') no-repeat center bottom;
+        background-size: cover;
+    }
+    body .fundo-sinopse img {
+        height: 200px;
+    }
+    .icones {
+        display: grid;
+    }
+    
+    .img-left-top, .img-left-bottom, .img-right-top, .img-right-bottom {
+        display: none;
+    }
+    .asta-side, .yuno-side {
+        font-size: 4rem;
+    }
+
+    .irmaos img {
+        height: 380px;
+    }
+    .irmaos {
+        position: relative;
+    }
+    #asta {
+        top: 0;
+        left: 0;
+    }
+    #yuno {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    
+        }
+    .irmaos::before {
+        background: #aee4a0;
+        clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0 100%);
+    }
+    
+    .irmaos::after {
+        background: #111111;
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 60%);
+    }
+
+    .irmaos.ativoAsta::after {
+        clip-path: polygon(2% 1%, 98% 1%, 98% 39.2%, 2% 58.5%);
+    }
+    
+    .irmaos.ativoAsta::before {
+        clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0 100%);
+    }
+    
+    .irmaos.ativoYuno::after {
+        clip-path: polygon(0 0, 100% 0, 100% 40%, 0 60%);
+    }
+    
+    .irmaos.ativoYuno::before {
+        clip-path: polygon(2% 61%, 98% 41.5%, 98% 99%, 2% 99%);
+    }
+
+    .fundo-sinopse {
+        height: 95%;
+        width: 90%;
+    } 
+    .icone-container {
+        margin-top: 0;
+        padding-top: 0;
+        
+    }
+    .sinopse {
+        width: 95%;
+    }
+    .fundo-sinopse-container {
+        box-shadow: 0px 10px 0px 0px #f8f8f8;
+    }
+    .icone-container h1 {
+        font-size: 3.5rem;
+        background-color: #1b1b1b;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        box-shadow: 0px 10px 0px 0px #f8f8f8;
+    }
+    body.ativo-yuno-mode .fundo-sinopse-container, body.ativo-yuno-mode  .icone-container h1 {
+        box-shadow: 0px 10px 0px 0px #d4c6a9;
+    }
+    body.ativo-yuno-mode .icone-container h1 {
+        background-color: #435377;
+    }
+    .icones {
+        padding-top: 40px;
+        margin: auto;
+        width: 80%;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 0px;
+        justify-items: center;
+    }
+    .icones img {
+        height: 80px;
+        align-self: center;
+    }
+    .capitaes .capitao {
+        padding-top: 0px;
+    }
+    .capitaes .capitao.ativo {
+        gap: 0px;
+        grid-template-columns: 100%;
+        grid-template-rows: 1fr 1fr;
+    }
+    .capitaes .capitao.ativo img {
+        height: 440px;
+        justify-self: center;
+    }
+
+    .capitaes .capitao.ativo div p {
+        line-height: 2.5rem;
+    }
+    .slide img {
+        height: 240px;
+    }
+    .comentarios {
+        font-size: 1.2rem;
+        width: 90%;
+        margin: auto;
+        height: 750px;
+    }
+    .flex-nome-email {
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+    }
+    .comentarios textarea {
+        height: 400px;
+    }
+    .nome, .email {
+        width: 100%;
+    }
+    #nome, #email {
+        width: 100%;
+    }
+    
+}
+/* Tablet */
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+    body {
+        overflow-x: hidden;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: 5% 90% 5%;
+        grid-template-rows: 100vh 100px 800px 25px 1050px 266px 1000px 700px 800px;
+        
+    }
+    .capitaes {
+        padding-top: 70px;
+        height: 1000px;
+        grid-column: 2 / 3;   
+        align-self: start;
+    }
+    .asta-side, .yuno-side {
+        font-size: 6.5rem;
+    }
+    body .logo {
+        height: 100px;
+    }
+    .irmaos img {
+        height: 650px;
+    }
+    #quizz-image {
+        right: 0;
+    }
+
+    .icones img {
+        height: 70px;
+    }   
+    .capitaes {
+        align-self: start;
+       justify-content: start;
+        margin: auto;
+        width: 100vw;
+    }
+    .capitaes .capitao.ativo {
+        gap: 20px;
+        grid-template-columns: 450px 450px;
+        grid-template-rows: 1000px;
+        width: 100%;
+        padding-top: 0;
+    }
+    .capitaes .capitao.ativo div {
+      width: 100%;
+    }
+   
+    body .capitaes .capitao.ativo div p {
+        width: 100%;
+        font-size: 1.3rem;
+    }
+
+    .fundo-sinopse-container img {
+        height: 300px;
+    }  
+
+    body .img-left-top {
+        height: 200px;
+        top: 15%;
+    }
+    body .img-left-bottom {
+        bottom: 10%;
+    }
+    body .img-right-top {
+        top: 17%;
+        right: 2%;
+    }
+    body .img-right-bottom {
+        bottom: 10%;
+    }
+    body.ativo-yuno-mode .img-left-top {
+        top: 15%;
+    }    
+    body.ativo-yuno-mode .img-left-bottom {
+        height: 160px;
+        bottom: 20%;
+    }
+    body.ativo-yuno-mode .img-right-top {
+        height: 160px;
+        top: 15%;
+        right: 2%;
+    }  
+    body.ativo-yuno-mode .img-right-bottom {
+        bottom: 15%;
+        right: 2%;
+    }  
+}
+
+/* PC Desktop */
+@media only screen and (min-width: 1025px) and (max-width: 1300px) {
+    .asta-side, .yuno-side {
+        font-size: 8rem;
+    }
+    .fundo-sinopse-container img {
+        height: 370px;
+    }
+
+    body .fundo-sinopse-container .img-left-top {
+        height: 250px;
+        top: 18%;
+        left: 1%;
+    }
+    
+    .img-left-bottom {
+        bottom: 0;
+        left: 2%;
+    }
+    
+    .img-right-top {
+        top: 10%;
+        right: 3%;
+    }
+    
+    .img-right-bottom {
+        bottom: 2%;
+        right: 7%;
+    }
+    
+    body.ativo-yuno-mode .img-left-top {
+        top: 11%;
+    }
+
+    body.ativo-yuno-mode .img-left-bottom {
+        height: 200px;
+        bottom: 5%;
+    }
+    
+    body.ativo-yuno-mode .img-right-bottom {
+        right: 2%;
+    }
+    
+    body.ativo-yuno-mode .img-right-top {
+        height: 200px;
+        top: 15%;
+        right: 3%;
+    }
+    .capitaes .capitao.ativo {
+        gap: 150px;
+    }
+    .grid-container {
+        grid-template-rows: 100vh 100px 800px 25px 1050px 266px 1000px 700px 800px;
+    }
+    #quizz-image {
+        right: 2%;
+    }
+}
+
+
 
