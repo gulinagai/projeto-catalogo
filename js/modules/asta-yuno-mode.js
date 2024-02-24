@@ -1,8 +1,10 @@
 export default class AstaYunoMode {
-    constructor(irmaos, irmaosDiv) {
+    constructor(irmaos, irmaosDiv, section) {
         this.irmaos = document.querySelectorAll(irmaos)
         this.irmaosDiv = document.querySelector(irmaosDiv)
-        
+        this.sectionSinopse = document.querySelector(section)
+
+
         this.backgroundChange = this.backgroundChange.bind(this)
         this.addMouseOverEffect = this.addMouseOverEffect.bind(this)
 
@@ -44,7 +46,7 @@ export default class AstaYunoMode {
             })
 
            listaAsta.forEach((imgFundoAsta)=>{
-            document.body.appendChild(imgFundoAsta)
+            this.sectionSinopse.appendChild(imgFundoAsta)
            })
 
             this.fundoImagemAsta1.classList.add('img-left-top')
@@ -78,7 +80,7 @@ export default class AstaYunoMode {
                 })
 
                 listaYuno.forEach((imgFundoYuno)=>{
-                    document.body.appendChild(imgFundoYuno)
+                    this.sectionSinopse.appendChild(imgFundoYuno)
                 })
 
 
