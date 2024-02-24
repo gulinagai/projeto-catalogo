@@ -911,6 +911,9 @@ body.ativo-yuno-mode .img-right-top {
         grid-template-rows: 100vh 100px 800px 25px 1050px 266px 1000px 700px 800px;
         
     }
+    .grid-section {
+        grid-column: 1/5;
+    }
     .capitaes {
         padding-top: 70px;
         height: 1000px;
@@ -989,6 +992,13 @@ body.ativo-yuno-mode .img-right-top {
         bottom: 15%;
         right: 2%;
     }  
+    .comentarios {
+        grid-column: 1/5;
+        font-size: 1.2rem;
+        width: 90%;
+        margin: auto;
+        height: 60%;
+    }
 }
 
 /* PC Desktop */
