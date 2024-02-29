@@ -427,11 +427,19 @@ body.ativo-yuno-mode .img-right-top {
     box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.7);
 }
 
+.quizz div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
 #quizz-image {
-    position: fixed;
+    position: absolute;
     height: 160px;
-    bottom: 0;
-    right: 4.4%;
+    right: -55%;
     z-index: 5;
 }
 
@@ -929,9 +937,9 @@ body.ativo-yuno-mode .img-right-top {
     .irmaos img {
         height: 650px;
     }
-    #quizz-image {
+    /* #quizz-image {
         right: 0;
-    }
+    } */
 
     .icones img {
         height: 70px;
@@ -1055,9 +1063,9 @@ body.ativo-yuno-mode .img-right-top {
     .grid-container {
         grid-template-rows: 100vh 100px 800px 25px 1050px 266px 1000px 700px 800px;
     }
-    #quizz-image {
+    /* #quizz-image {
         right: 2%;
-    }
+    } */
 }
 
 
